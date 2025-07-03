@@ -1,0 +1,36 @@
+
+[general]
+
+	[general.main]
+		bingo_mod = true
+
+[automaton]
+
+	[automaton.automaton]
+		robot_automaton_pings = true
+
+[splashes]
+
+	[splashes.splash]
+		splash_pings = true
+		sound_volume = 1.0
+		sound = true
+		chat_message = true
+		title = true
+
+[notifications]
+
+	[notifications.automaton]
+		robot_automaton_pings = false
+
+	[notifications.main]
+		splash_pings = true
+
+	[notifications.splash]
+		splash_pings = true
+		sound_volume = 0.21225962
+		sound = true
+		chat_message = true
+		title = true
+		chat_notification = true
+
