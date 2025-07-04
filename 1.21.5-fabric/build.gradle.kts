@@ -14,6 +14,7 @@ base {
 }
 
 loom {
+
     splitEnvironmentSourceSets()
 
     mods {
@@ -34,18 +35,24 @@ repositories {
 }
 
 dependencies {
+
     // To change the versions see the gradle.properties file
     minecraft("com.mojang:minecraft:${project.property("minecraft_version")}")
     mappings("net.fabricmc:yarn:${project.property("yarn_mappings")}:v2")
     modImplementation("net.fabricmc:fabric-loader:${project.property("loader_version")}")
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
+    modImplementation (include("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")!!)
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
     modImplementation("gg.essential:vigilance:${project.property("vigilance_version")}"){
         exclude(group = "gg.essential", module = "elementa")
+        include("gg.essential:vigilance:${project.property("vigilance_version")}")
     }
-    modImplementation("gg.essential:elementa:${project.property("elementa_version")}")
+    modImplementation(include("gg.essential:elementa:${project.property("elementa_version")}")!!)
     modImplementation(include("gg.essential:universalcraft-1.21.5-fabric:${project.property("uc_version")}")!!)
-    implementation(project(":common"))
+    implementation (project(":common"))
+    include(project(":common"))
+    //modImplementation(include(project(":common"))!!)
+    modImplementation(include("org.java-websocket:Java-WebSocket:1.5.4")!!)
+    include("org.java-websocket:Java-WebSocket:1.5.4")
 }
 
 tasks.processResources {
@@ -85,6 +92,7 @@ tasks.jar {
         rename { "${it}_${project.property("archives_base_name")}" }
     }
 }
+
 
 
 

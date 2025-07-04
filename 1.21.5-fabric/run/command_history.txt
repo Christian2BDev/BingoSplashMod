@@ -2,3 +2,5 @@
 /Bingo\
 /Bingo Edit
 /Bingo
+/b
+/Bingo
